@@ -41,4 +41,4 @@ The video must include, with screen share + your voice-over:
 - [ ] Link pasted below and tested in an incognito/private browser tab
 
 ## Demo Video Link
-`<paste your public Google Drive link here>`
+`https://drive.google.com/file/d/18XSL-S4TXOB7IK8cchI2EZHuN-lvo9Pv/view?usp=drive_link`
