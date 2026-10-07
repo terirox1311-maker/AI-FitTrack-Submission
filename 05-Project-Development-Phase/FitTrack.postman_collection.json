@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "AI FitTrack API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sathya\",\n  \"email\": \"sathya@gmail.com\",\n  \"password\": \"Sathya@01\"\n}"
+        },
+        "url": "{{baseUrl}}/auth/register"
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"sathya@gmail.com\",\n  \"password\": \"Sathya@01\"\n}"
+        },
+        "url": "{{baseUrl}}/auth/login"
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/auth/profile"
+      }
+    },
+    {
+      "name": "Add Workout",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"workoutName\": \"Evening Jog\",\n  \"category\": \"Running\",\n  \"duration\": 30,\n  \"caloriesBurned\": 350,\n  \"workoutDate\": \"2026-06-26\"\n}"
+        },
+        "url": "{{baseUrl}}/workouts"
+      }
+    },
+    {
+      "name": "Get All Workouts",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/workouts"
+      }
+    },
+    {
+      "name": "Search Workouts",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/workouts/search?category=Running"
+      }
+    },
+    {
+      "name": "Get Workout By ID",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/workouts/:id"
+      }
+    },
+    {
+      "name": "Update Workout",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"duration\": 60,\n  \"caloriesBurned\": 650\n}"
+        },
+        "url": "{{baseUrl}}/workouts/:id"
+      }
+    },
+    {
+      "name": "Delete Workout",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{baseUrl}}/workouts/:id"
+      }
+    },
+    {
+      "name": "AI Workout Recommendation",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"age\": 22,\n  \"fitnessGoal\": \"Weight Loss\",\n  \"experience\": \"Beginner\"\n}"
+        },
+        "url": "{{baseUrl}}/ai/workout-recommendation"
+      }
+    },
+    {
+      "name": "AI Fitness Insights",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"totalWorkouts\": 18,\n  \"averageDuration\": 45,\n  \"totalCaloriesBurned\": 6200\n}"
+        },
+        "url": "{{baseUrl}}/ai/fitness-insights"
+      }
+    }
+  ]
+}
